@@ -1,0 +1,26 @@
+{
+  "name": "node-errors",
+  "version": "0.1.0",
+  "description": "Helper module for handling errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/.bin/_mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gimenete/node-errors.git"
+  },
+  "keywords": [
+    "errors"
+  ],
+  "author": "Alberto Gimeno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gimenete/node-errors/issues"
+  },
+  "homepage": "https://github.com/gimenete/node-errors",
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "mocha": "^1.21.4"
+  }
+}
