@@ -106,7 +106,7 @@ Another thing you can do is to easily listen to errors. The `node-errors` module
 errors.on('internal', function(err) {
   // log this internal error
 })
-``
+```
 
 You could for example generate a custom `critical` error type and everytime that one critical error is generated you could send an SMS to somebody. For example if a payment gateway fails, or whatever.
 
