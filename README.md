@@ -125,6 +125,8 @@ somethingAsync(function(err, arg) {
 If you don't want to translate any error, just pass it through you can use the `nook` function:
 
 ```javascript
+var nook = errors.nook
+
 somethingAsync(nook(callback,
   function(arg) {
     callback(null, arg+something)
