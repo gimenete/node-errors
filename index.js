@@ -54,7 +54,6 @@ exports.defineErrorType = function(type) {
     if (this.finished) return this
     if (this.lastCondition) {
       this.finished = true
-      // var args = Array.prototype.slice.call(arguments)
       var error = new CustomError()
       error.message = util.format.apply(null, arguments)
       error.root = this.err
@@ -66,6 +65,17 @@ exports.defineErrorType = function(type) {
     this.errorType = type
     this.errorArguments = arguments
     return this
+  }
+  exports[type] = function() {
+    var args = Array.prototype.slice.call(arguments)
+    var last = args[args.length - 1]
+    var error = new CustomError()
+    if (last instanceof Error) {
+      error.root = args.pop()
+    }
+    error.message = util.format.apply(null, args)
+    error.type = type
+    return error
   }
 }
 

@@ -190,4 +190,19 @@ describe('Test the whole thing', function() {
     })(error, foo)
   })
 
+  it('tests creating custom errors directly', function() {
+    var foo = '!!'
+    var err = errors.request('Invalid argument %s', foo)
+    assert.ok(err)
+    assert.equal(err.message, 'Invalid argument !!')
+  })
+
+  it('tests creating custom errors directly with a root object', function() {
+    var error = new Error('test')
+    var err = errors.internal('Invalid argument', error)
+    assert.ok(err)
+    assert.equal(err.message, 'Invalid argument')
+    assert.equal(err.root, error)
+  })
+
 })

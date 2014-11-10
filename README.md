@@ -98,6 +98,21 @@ downloadPicture('1234', function(err, buffer) {
 })
 ```
 
+## Creating custom errors directly
+
+You can also create custom errors directly. Example:
+
+```
+var err = errors.notFound('User not found `%s`', email)
+```
+
+If the last argument is an error object it is not used to format the error message and it is set to the `err.root` field.
+
+```
+var err = errors.internal('Internal error', error)
+err.root === error // true
+```
+
 ## Listening to errors
 
 Another thing you can do is to easily listen to errors. The `node-errors` module is an `EventEmitter` that emits events when errors are generated. So you can do:
